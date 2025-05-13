@@ -15,7 +15,7 @@ function showFeaturedProducts() {
   if (!featuredContainer) return;
 
   // Select a few featured products (e.g., the first 3 products)
-  const featured = products.slice(0, 3);
+  const featured = products.slice(0, 4);
 
   featured.forEach(product => {
     const div = document.createElement("div");
@@ -231,7 +231,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Step 2: Render testimonials
   function renderTestimonials() {
-    testimonialContainer.innerHTML = testimonials.slice(0, 3)
+    testimonialContainer.innerHTML = testimonials.slice(0, 4)
       .map(
         (testimonial) => `
         <div class="testimonial">
