@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HopeStore</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>HopeStore</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="cart.html">Cart</a>
+      <a href="checkout.html">Checkout</a>
+    </nav>
+  </header>
+  
+  <!-- Hero Section -->
+  <section id="hero">
+    <div class="hero-content">
+      <h2>Welcome to HopeStore</h2>
+      <p>Your one-stop shop for the best products at unbeatable prices!</p>
+      <a href="products.html" class="mybtn">Shop Now</a>
+    </div>
+  </section>
+
+  <!-- Featured Products Section -->
+  <main>
+    <section id="feat-products">
+      <h3>Featured Products</h3>
+      <div id="featured-container" class="products">
+        <!-- Featured products will be dynamically populated by scripts.js -->
+      </div>
+    </section>
+  </main>
+  <section id="testimonials">
+  <h3>What Our Customers Say</h3>
+  <div id="testimonial-container">
+     <div class="testimonial">
+      <p class="feedback"></p>
+      <p class="name"></p>
+      <p class="rating"></p>
+    </div>
+  </div>
+
+  <!-- Feedback Form -->
+  <h4>Submit Your Feedback</h4>
+  <form id="feedback-form">
+    <label for="name">Your Name:</label>
+    <input type="text" id="name" name="name" required />
+
+    <label for="feedback">Your Feedback:</label>
+    <textarea id="feedback" name="feedback" required></textarea>
+
+    <label for="rating">Rating:</label>
+    <select id="rating" name="rating" required>
+      <option value="5">⭐⭐⭐⭐⭐</option>
+      <option value="4">⭐⭐⭐⭐</option>
+      <option value="3">⭐⭐⭐</option>
+      <option value="2">⭐⭐</option>
+      <option value="1">⭐</option>
+    </select>
+
+    <button type="submit" class="mybtn">Submit</button>
+  </form>
+</section>
+<!-- footer section -->
+  <footer>
+    <div class="footer-section">
+      <div>
+      <h4>Shop</h4>
+      <p>Clothing</p>
+      <p>Electronics</p>
+      <p>Home & Kitchen</p>
+      <p>Beauty & Health</p>
+      <p>Sports & Outdoors</p>
+    </div>
+    <div class='service'>
+      <h4>Customer Service</h4>
+      <p>Returns & Exchanges</p>
+      <p>Shipping Information</p>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Service</a>
+      <a href="contact.html">Contact Us</a>
+    </div>
+    <div>
+      <h4>Follow Us</h4>
+      <p><a href="#">Facebook</a></p>
+      <p><a href="#">Twitter</a></p>
+      <p><a href="#">Instagram</a></p>
+      <p><a href="#">LinkedIn</a></p>
+    </div>
+     <hr>
+    <p class='store'>&copy; 2025 HopeStore. All rights reserved.</p>
+    </div>
+  </footer>
+  <script src="scripts.js"></script>
+</body>
+</html>
