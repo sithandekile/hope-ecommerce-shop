@@ -115,9 +115,10 @@ form input, form button {
 }
 #testimonial-container,
  .footer-section, 
- .products{
+ .products,.feat-products{
    display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  justify-content:center;
   gap:1rem;
   padding: 1rem;
 }

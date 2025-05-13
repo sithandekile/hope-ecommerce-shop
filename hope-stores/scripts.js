@@ -1,3 +1,4 @@
+ document.addEventListener("DOMContentLoaded", () => {
  const heroBackground = document.getElementById("hero");
 const images = ["https://images.pexels.com/photos/6214134/pexels-photo-6214134.jpeg?auto=compress&cs=tinysrgb&w=600", "https://images.pexels.com/photos/7552326/pexels-photo-7552326.jpeg?auto=compress&cs=tinysrgb&w=600", "https://images.pexels.com/photos/6868178/pexels-photo-6868178.jpeg?auto=compress&cs=tinysrgb&w=600"];
 let currentIndex = 0;
@@ -5,9 +6,9 @@ let currentIndex = 0;
 setInterval(() => {
   currentIndex = (currentIndex + 1) % images.length;
   heroBackground.style.backgroundImage = `url('${images[currentIndex]}')`;
-}, 5000); // rotating every 3 seconds
+}, 5000); // rotating every 5 seconds
 
- 
+})
  // Display featured products on index.html
 function showFeaturedProducts() {
   const featuredContainer = document.getElementById("featured-container");
@@ -48,7 +49,7 @@ const products = [
   { id: 9, name: "Sneakers", price: 300, image: "./assets/pink.png", description: "Stylish running sneakers." },
   { id: 10, name: "Sneakers", price: 350, image: "./assets/white.png", description: "Stylish running sneakers." },
   { id: 11, name: "Sneakers", price: 375, image: "./assets/navy.png", description: "Stylish running sneakers." },
-  { id: 12, name: "long coat", price: 320, image: "./assets/long.png", description: "long winter black coat." }
+  { id: 12, name: "long coat", price: 320, image: "./assets/whitec.png", description: "long winter black coat." }
 ];
 
 // Display products on products.html
@@ -243,7 +244,7 @@ document.addEventListener("DOMContentLoaded", () => {
       .join("");
   }
 
-  renderTestimonials();
+  renderTestimonials();  
 
   // Step 3: Handle form submission
   feedbackForm.addEventListener("submit", (e) => {
