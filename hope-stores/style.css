@@ -2,7 +2,7 @@ body {
   font-family: "Century Gothic";
   margin: 0;
   padding: 0;
-  height:100vh;
+  /* height:100vh; */
 }
 header {
   background: #e03f1b;
@@ -21,9 +21,18 @@ header {
   color: #fff;
    margin-left: 1rem; 
   text-decoration: none;
+
 }
-.menu{
-  display:none
+ #toggleText{
+  list-style-type: none; /* Removes the dots */
+   margin: 0;
+  padding: 0; 
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+} 
+.menu p{
+  display:none;
 }
 #hero {
   position: relative;
@@ -70,6 +79,7 @@ button,.mybtn {
   display: inline-block;
   background-color: #011f09;
   color: #fff;
+  cursor:pointer;
   margin-bottom: 2rem;
   padding: 15px 30px;
   font-size: 1.2rem;
@@ -98,7 +108,7 @@ form input, form button {
   display: flex;
   gap: 1rem;
   padding: 1rem;
-  background-color: navy;
+  background-color: rgb(1, 1, 27);
 } 
 .products img, .product-details img {
   width: 100%;
@@ -109,10 +119,10 @@ form input, form button {
 
 /* Individual product card */
 .product {
-  /* border: 1px solid #ddd;
+ /* border: 1px solid #ddd;
   border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  width: 200px; */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
+  width: 200px;
   text-align: center;
   padding: 15px;
   background-color: #fff;
@@ -235,13 +245,31 @@ footer{
     justify-content: space-between;
     align-items: center;
   }
-  .menu{
-    display:block
+  .menu p{
+    display:block;
+    font-weight:bold;
+    color:#d9ff00;
   }
   .products, .product-details, #testimonial-container, .footer-section, .products,.feat-products{
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   }
-  #toggleText a{
-    display: none;
-  }
+  /* Remove bullet points and add proper styling for the menu links */
+#toggleText{
+  list-style-type: none; /* Removes the dots */
+  margin: 0;
+  padding: 0;
+  display: none; /* Hidden by default */
+}
+
+#toggleText li {
+  margin: 10px 0; /* Add spacing between links */
+}
+
+#toggleText a {
+  text-decoration: none; 
+  font-size: 16px;
+  
+}
+
+
 }

@@ -1,18 +1,24 @@
-// const button = document.getElementById("toggleMenu");
-// const text = document.getElementById("toggleText");
+document.addEventListener("DOMContentLoaded", function () {
+  const toggleMenu = document.getElementById("toggleMenu");
+  const toggleText = document.getElementById("toggleText");
+  const menu = toggleMenu.querySelector("p");
 
-// button.onclick = function () {
-//   // Use getComputedStyle to check the current display status
-//   const isVisible = window.getComputedStyle(text).display === "none";
+  menu.addEventListener("click", function () {
+    // Check the current display status of the links
+    const isVisible = window.getComputedStyle(toggleText).display !== "none";
 
-//   if (isVisible) {
-//     text.style.display = "none";
-//    button.textContent = "Menu";
-//   } else {
-//     text.style.display = "block";
-//    button.textContent = "Close";
-//   }
-// };
+    if (isVisible) {
+      // Hide the links and update menu text
+      toggleText.style.display = "none";
+      menu.textContent = "Menu";
+      toggleText.style.backgroundColor = "rgb(1, 1, 27)"; // Reset background color
+    } else {
+      // Show the links and update menu text
+      toggleText.style.display = "block";
+      menu.textContent = "Close";
+    }
+  });
+});
 
  
  document.addEventListener("DOMContentLoaded", () => {
