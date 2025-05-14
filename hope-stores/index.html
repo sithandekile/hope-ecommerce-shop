@@ -4,16 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>HopeStore</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
   <header>
     <h1>HopeStore</h1>
     <nav>
-      <a href="index.html">Home</a>
-      <a href="products.html">Products</a>
-      <a href="cart.html">Cart</a>
-      <a href="checkout.html">Checkout</a>
+      <p id="toggleMenu" class='menu'>Menu</p>
+     <ul id="toggleText"> 
+      <li><a href="index.html">Home</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="cart.html">Cart</a></li>
+      <li><a href="checkout.html">Checkout</a></li>
+     </ul>
     </nav>
   </header>
   
@@ -92,10 +95,12 @@
       <p><a href="#">Instagram</a></p>
       <p><a href="#">LinkedIn</a></p>
     </div>
-     <hr>
-    <p class='store'>&copy; 2025 HopeStore. All rights reserved.</p>
+  </div>
+    <div class='store'>
+      <hr>
+    <p>&copy; 2025 HopeStore. All rights reserved.</p>
     </div>
   </footer>
-  <script src="scripts.js"></script>
+  <script src="./scripts.js"></script>
 </body>
 </html>

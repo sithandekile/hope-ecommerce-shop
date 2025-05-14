@@ -1,3 +1,20 @@
+// const button = document.getElementById("toggleMenu");
+// const text = document.getElementById("toggleText");
+
+// button.onclick = function () {
+//   // Use getComputedStyle to check the current display status
+//   const isVisible = window.getComputedStyle(text).display === "none";
+
+//   if (isVisible) {
+//     text.style.display = "none";
+//    button.textContent = "Menu";
+//   } else {
+//     text.style.display = "block";
+//    button.textContent = "Close";
+//   }
+// };
+
+ 
  document.addEventListener("DOMContentLoaded", () => {
  const heroBackground = document.getElementById("hero");
 const images = ["https://images.pexels.com/photos/6214134/pexels-photo-6214134.jpeg?auto=compress&cs=tinysrgb&w=600", "https://images.pexels.com/photos/7552326/pexels-photo-7552326.jpeg?auto=compress&cs=tinysrgb&w=600", "https://images.pexels.com/photos/6868178/pexels-photo-6868178.jpeg?auto=compress&cs=tinysrgb&w=600"];
