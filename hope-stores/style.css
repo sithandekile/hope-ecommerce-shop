@@ -18,7 +18,6 @@ header {
   left: 0;
   right: 0;
   z-index: 1000;
-  height:90px;
 }
  a {
   color: #fff;
@@ -92,7 +91,7 @@ header {
 
 button,.mybtn {
   display: inline-block;
-  background-color: #011f09;
+  background-color: rgb(1, 23, 48);
   color: #fff;
   cursor:pointer;
   margin-bottom: 2rem;
@@ -285,7 +284,7 @@ footer{
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
      /* align-items: center;
     justify-items: center;  */
-    overflow:hidden;
+    /* overflow:hidden; */
   }
   /* Remove bullet points and add proper styling for the menu links */
 #toggleText{
@@ -307,5 +306,18 @@ footer{
 #toggleText a:hover {
   text-decoration: underline; /* Underline on hover */
 
+}
+header{
+ display:flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+}
+header img, footer img{
+  width: 200px;
+  height: auto;
+}
+footer{
+  background-color:rgb(1, 23, 48);
 }
 }

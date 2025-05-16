@@ -39,7 +39,8 @@ function initMenuToggle() {
     const isVisible = window.getComputedStyle(toggleText).display !== "none";
     toggleText.style.display = isVisible ? "none" : "block";
     menu.textContent = isVisible ? "Menu" : "Close";
-    if (isVisible) toggleText.style.backgroundColor = "rgb(1, 1, 27)";
+    if (isVisible)
+       toggleText.style.backgroundColor = "rgb(1, 1, 27)";
   });
 }
 

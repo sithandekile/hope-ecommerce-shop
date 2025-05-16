@@ -69,5 +69,5 @@ using local storage for the database
 -scripts.js
 
 also using pexel images
-Lets collaborate and grow together by cloning this..
+Lets collaborate and grow together by cloning this..https://github.com/sithandekile/hope-ecommerce-shop.git
 deployed link 🔗https://hope-ecommerce-shop-eoss.vercel.app/
