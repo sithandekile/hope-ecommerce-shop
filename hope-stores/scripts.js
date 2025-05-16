@@ -1,45 +1,73 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const toggleMenu = document.getElementById("toggleMenu");
-  const toggleText = document.getElementById("toggleText");
-  const menu = toggleMenu.querySelector("p");
+// =================== PRODUCT DATA ===================
+const products = [
+  { id: 1, name: "T-Shirt", price: 10, image: "https://images.pexels.com/photos/1759622/pexels-photo-1759622.jpeg?auto=compress&cs=tinysrgb&w=600", description: "Comfortable cotton T-shirt." },
+  { id: 2, name: "Sneakers", price: 200, image: "https://images.pexels.com/photos/1598505/pexels-photo-1598505.jpeg?auto=compress&cs=tinysrgb&w=600", description: "Stylish running sneakers." },
+  { id: 3, name: "Short Coat", price: 210, image: "https://images.pexels.com/photos/837140/pexels-photo-837140.jpeg?auto=compress&cs=tinysrgb&w=600", description: "Short winter coat." },
+  { id: 4, name: "T-Shirt", price: 10, image: "./assets/orange.png", description: "Stylish cotton T-shirt." },
+  { id: 5, name: "T-Shirt", price: 20, image: "./assets/minds.png", description: "Stylish running sneakers." },
+  { id: 6, name: "T-Shirt", price: 30, image: "./assets/heroe.png", description: "Stylish running sneakers." },
+  { id: 7, name: "T-Shirt", price: 50, image: "./assets/lorem.png", description: "Stylish running sneakers." },
+  { id: 8, name: "Sneakers", price: 250, image: "./assets/allstar.png", description: "Stylish running sneakers." },
+  { id: 9, name: "Sneakers", price: 300, image: "./assets/pink.png", description: "Stylish running sneakers." },
+  { id: 10, name: "Sneakers", price: 350, image: "./assets/white.png", description: "Stylish running sneakers." },
+  { id: 11, name: "Sneakers", price: 375, image: "./assets/navy.png", description: "Stylish running sneakers." },
+  { id: 12, name: "Long Coat", price: 320, image: "./assets/whitec.png", description: "Long winter black coat." }
+];
 
-  menu.addEventListener("click", function () {
-    // Check the current display status of the links
-    const isVisible = window.getComputedStyle(toggleText).display !== "none";
-
-    if (isVisible) {
-      // Hide the links and update menu text
-      toggleText.style.display = "none";
-      menu.textContent = "Menu";
-      toggleText.style.backgroundColor = "rgb(1, 1, 27)"; // Reset background color
-    } else {
-      // Show the links and update menu text
-      toggleText.style.display = "block";
-      menu.textContent = "Close";
-    }
-  });
+// =================== EVENT ON PAGE LOAD ===================
+document.addEventListener("DOMContentLoaded", () => {
+  initMenuToggle();
+  initHeroBackground();
+  showFeaturedProducts();
+  showProducts();
+  showProductDetails();
+  showCart();
+  showOrderSummary();
+  initTestimonials();
+  initCheckoutForm();
 });
 
- 
- document.addEventListener("DOMContentLoaded", () => {
- const heroBackground = document.getElementById("hero");
-const images = ["https://images.pexels.com/photos/6214134/pexels-photo-6214134.jpeg?auto=compress&cs=tinysrgb&w=600", "https://images.pexels.com/photos/7552326/pexels-photo-7552326.jpeg?auto=compress&cs=tinysrgb&w=600", "https://images.pexels.com/photos/6868178/pexels-photo-6868178.jpeg?auto=compress&cs=tinysrgb&w=600"];
-let currentIndex = 0;
+// =================== MENU TOGGLE ===================
+function initMenuToggle() {
+  const toggleMenu = document.getElementById("toggleMenu");
+  const toggleText = document.getElementById("toggleText");
+  if (!toggleMenu || !toggleText) return;
 
-setInterval(() => {
-  currentIndex = (currentIndex + 1) % images.length;
-  heroBackground.style.backgroundImage = `url('${images[currentIndex]}')`;
-}, 5000); // rotating every 5 seconds
+  const menu = toggleMenu.querySelector("p");
 
-})
- // Display featured products on index.html
+  menu.addEventListener("click", () => {
+    const isVisible = window.getComputedStyle(toggleText).display !== "none";
+    toggleText.style.display = isVisible ? "none" : "block";
+    menu.textContent = isVisible ? "Menu" : "Close";
+    if (isVisible) toggleText.style.backgroundColor = "rgb(1, 1, 27)";
+  });
+}
+
+// =================== HERO BACKGROUND ===================
+function initHeroBackground() {
+  const heroBackground = document.getElementById("hero");
+  if (!heroBackground) return;
+
+  const images = [
+    "https://images.pexels.com/photos/1488463/pexels-photo-1488463.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "https://images.pexels.com/photos/6214134/pexels-photo-6214134.jpeg?auto=compress&cs=tinysrgb&w=600",
+    // "https://images.pexels.com/photos/7552326/pexels-photo-7552326.jpeg?auto=compress&cs=tinysrgb&w=600",
+    "https://images.pexels.com/photos/6868178/pexels-photo-6868178.jpeg?auto=compress&cs=tinysrgb&w=600"
+  ];
+  let currentIndex = 0;
+
+  setInterval(() => {
+    currentIndex = (currentIndex + 1) % images.length;
+    heroBackground.style.backgroundImage = `url('${images[currentIndex]}')`;
+  }, 5000);
+}
+
+// =================== FEATURED PRODUCTS ===================
 function showFeaturedProducts() {
-  const featuredContainer = document.getElementById("featured-container");
-  if (!featuredContainer) return;
+  const container = document.getElementById("featured-container");
+  if (!container) return;
 
-  // Select a few featured products (e.g., the first 3 products)
   const featured = products.slice(0, 4);
-
   featured.forEach(product => {
     const div = document.createElement("div");
     div.classList.add("featured-product");
@@ -50,36 +78,15 @@ function showFeaturedProducts() {
         <p>$${product.price}</p>
       </a>
     `;
-    featuredContainer.appendChild(div);
+    container.appendChild(div);
   });
 }
 
-// Call the function on page load
-document.addEventListener("DOMContentLoaded", () => {
-  showFeaturedProducts();
-});
-
-// my product data
-const products = [
-  { id: 1, name: "T-Shirt", price: 10, image: "./assets/coding.png", description: "Comfortable cotton T-shirt." },
-  { id: 2, name: "Sneakers", price: 200, image: "https://images.pexels.com/photos/1598505/pexels-photo-1598505.jpeg?auto=compress&cs=tinysrgb&w=600", description: "Stylish running sneakers." },
-  { id: 3, name: "short coat", price: 210, image: "./assets/short.png", description: "short winter coat." },
-  { id: 4, name: "T-Shirt", price: 10, image: "./assets/orange.png", description: "Stylish cotton T-shirt." },
-  { id: 5, name: "T-Shirt", price: 20, image: "./assets/minds.png", description: "Stylish running sneakers." },
-  { id: 6, name: "T-Shirt", price: 30, image: "./assets/heroe.png", description: "Stylish running sneakers." },
-  { id: 7, name: "T-Shirt", price: 50, image: "./assets/lorem.png", description: "Stylish running sneakers." },
-  { id: 8, name: "Sneakers", price: 250, image: "./assets/allstar.png", description: "Stylish running sneakers." },
-  { id: 9, name: "Sneakers", price: 300, image: "./assets/pink.png", description: "Stylish running sneakers." },
-  { id: 10, name: "Sneakers", price: 350, image: "./assets/white.png", description: "Stylish running sneakers." },
-  { id: 11, name: "Sneakers", price: 375, image: "./assets/navy.png", description: "Stylish running sneakers." },
-  { id: 12, name: "long coat", price: 320, image: "./assets/whitec.png", description: "long winter black coat." }
-];
-
-// Display products on products.html
+// =================== ALL PRODUCTS ===================
 function showProducts() {
   const container = document.getElementById("products");
   if (!container) return;
-  
+
   products.forEach(product => {
     const div = document.createElement("div");
     div.classList.add("product");
@@ -95,21 +102,20 @@ function showProducts() {
   });
 }
 
-// Display single product on product-details.html
+// =================== PRODUCT DETAILS ===================
 function showProductDetails() {
-  const productDetailsContainer = document.getElementById("product-details");
-  if (!productDetailsContainer) return; // Exit if the element does not exist
+  const container = document.getElementById("product-details");
+  if (!container) return;
 
-  const params = new URLSearchParams(window.location.search);
-  const id = parseInt(params.get("id"));
+  const id = parseInt(new URLSearchParams(window.location.search).get("id"));
   const product = products.find(p => p.id === id);
 
   if (!product) {
-    productDetailsContainer.innerHTML = "<p>Product not found.</p>";
+    container.innerHTML = "<p>Product not found.</p>";
     return;
   }
 
-  productDetailsContainer.innerHTML = `
+  container.innerHTML = `
     <img src="${product.image}" alt="${product.name}">
     <h2>${product.name}</h2>
     <p>${product.description}</p>
@@ -118,44 +124,27 @@ function showProductDetails() {
   `;
 }
 
-// Add product to cart (localStorage)
+// =================== ADD TO CART ===================
 function addToCart(productId) {
-  // Retrieve the cart from local storage or initialize it as an empty array
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const product = products.find(p => p.id === productId);
+  if (!product) return alert("Product not found!");
 
-  // Find the product by its ID
-  const product = products.find((p) => p.id === productId);
+  const existing = cart.find(item => item.id === productId);
+  existing ? existing.quantity++ : cart.push({ ...product, quantity: 1 });
 
-  if (product) {
-    // Check if the product is already in the cart
-    const existingProduct = cart.find((item) => item.id === productId);
-
-    if (existingProduct) {
-      // If the product is already in the cart, increase its quantity
-      existingProduct.quantity += 1;
-    } else {
-      // If the product is not in the cart, add it with a quantity of 1
-      cart.push({ ...product, quantity: 1 });
-    }
-
-    // Save the updated cart back to local storage
-    localStorage.setItem("cart", JSON.stringify(cart));
-
-    // Alert the user
-    alert("Product added to cart!");
-  } else {
-    alert("Product not found!");
-  }
+  localStorage.setItem("cart", JSON.stringify(cart));
+  alert("Product added to cart!");
 }
 
-// Show cart items on cart.html
+// =================== SHOW CART ===================
 function showCart() {
-  const cartContainer = document.getElementById("cart-items");
-  if (!cartContainer) return;
+  const container = document.getElementById("cart-items");
+  if (!container) return;
 
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
   if (cart.length === 0) {
-    cartContainer.innerHTML = "<p>Your cart is empty.</p>";
+    container.innerHTML = "<p>Your cart is empty.</p>";
     return;
   }
 
@@ -173,62 +162,54 @@ function showCart() {
       <p>Price: $${product.price}</p>
       <p>Subtotal: $${subtotal}</p>
     `;
-    cartContainer.appendChild(div);
+    container.appendChild(div);
   });
 
   document.getElementById("cart-total").innerText = `Total: $${total}`;
 }
 
-// Call appropriate functions on page load
-document.addEventListener("DOMContentLoaded", () => {
-  showProducts();
-  showProductDetails();
-  showCart();
-});
-
-// Display order summary on checkout.html
+// =================== ORDER SUMMARY ===================
 function showOrderSummary() {
-  const orderSummary = document.getElementById("order-summary");
-  if (!orderSummary) return;
+  const container = document.getElementById("order-summary");
+  if (!container) return;
 
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
   if (cart.length === 0) {
-    orderSummary.innerHTML = "<p>Your cart is empty. Please add items to your cart before checking out.</p>";
+    container.innerHTML = "<p>Your cart is empty. Please add items to your cart before checking out.</p>";
     return;
   }
 
   let total = 0;
-  const summaryHTML = cart.map(item => {
+  const summary = cart.map(item => {
     const product = products.find(p => p.id === item.id);
     const subtotal = product.price * item.quantity;
     total += subtotal;
-    return `
-      <p>${product.name} (x${item.quantity}): $${subtotal}</p>
-    `;
+    return `<p>${product.name} (x${item.quantity}): $${subtotal}</p>`;
   }).join("");
 
-  orderSummary.innerHTML = `
-    <h3>Order Summary</h3>
-    ${summaryHTML}
-    <p><strong>Total:</strong> $${total}</p>
-  `;
+  container.innerHTML = `<h3>Order Summary</h3>${summary}<p><strong>Total:</strong> $${total}</p>`;
 }
 
-// Handling the checkout  form submission
-document.getElementById("checkout-form")?.addEventListener("submit", (e) => {
-  e.preventDefault();
-  alert("Order placed successfully!");
-  localStorage.removeItem("cart"); // Clearing the cart
-  window.location.href = "index.html"; // Redirecting to home page
-});
+// =================== CHECKOUT FORM ===================
+function initCheckoutForm() {
+  const form = document.getElementById("checkout-form");
+  if (!form) return;
 
-// Call the function on page load
-document.addEventListener("DOMContentLoaded", () => {
-  showOrderSummary();
-});
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    alert("Order placed successfully!");
+    localStorage.removeItem("cart");
+    window.location.href = "index.html";
+  });
+}
 
-document.addEventListener("DOMContentLoaded", () => {
-  // Step 1: Load testimonials from localStorage or use defaults
+// =================== TESTIMONIALS ===================
+function initTestimonials() {
+  const container = document.getElementById("testimonial-container");
+  const form = document.getElementById("feedback-form");
+  if (!container || !form) return;
+
+  // Default testimonials (used if nothing is in localStorage)
   const defaultTestimonials = [
     {
       name: "Peter N.",
@@ -247,44 +228,44 @@ document.addEventListener("DOMContentLoaded", () => {
     },
   ];
 
+  // Load existing testimonials or fallback to defaults
   let testimonials = JSON.parse(localStorage.getItem("testimonials")) || defaultTestimonials;
 
-  const testimonialContainer = document.getElementById("testimonial-container");
-  const feedbackForm = document.getElementById("feedback-form");
-
-  // Step 2: Render testimonials
+  // Render testimonials to the page
   function renderTestimonials() {
-    testimonialContainer.innerHTML = testimonials.slice(0, 4)
-      .map(
-        (testimonial) => `
-        <div class="testimonial">
-          <p class="feedback">"${testimonial.feedback}"</p>
-          <p class="name">- ${testimonial.name}</p>
-          <p class="rating">Rating: ${"⭐".repeat(testimonial.rating)}</p>
-        </div>
-      `
-      )
-      .join("");
+    container.innerHTML = testimonials.slice(-4).map(t => `
+      <div class="testimonial">
+        <p class="feedback">"${t.feedback}"</p>
+        <p class="name">- ${t.name}</p>
+        <p class="rating">Rating: ${"⭐".repeat(t.rating)}</p>
+      </div>
+    `).join("");
   }
 
-  renderTestimonials();  
+  // Initial render
+  renderTestimonials();
 
-  // Step 3: Handle form submission
-  feedbackForm.addEventListener("submit", (e) => {
+  // Handle new testimonial submission
+  form.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    const name = document.getElementById("name").value;
-    const feedback = document.getElementById("feedback").value;
+    const name = document.getElementById("name").value.trim();
+    const feedback = document.getElementById("feedback").value.trim();
     const rating = parseInt(document.getElementById("rating").value);
+
+    if (!name || !feedback || isNaN(rating) || rating < 1 || rating > 5) {
+      alert("Please provide valid name, feedback, and a rating from 1 to 5.");
+      return;
+    }
 
     const newTestimonial = { name, feedback, rating };
     testimonials.push(newTestimonial);
 
-    // Step 4: Update localStorage
+    // Save to localStorage
     localStorage.setItem("testimonials", JSON.stringify(testimonials));
 
     renderTestimonials();
-    feedbackForm.reset();
+    form.reset();
     alert("Thank you for your feedback!");
   });
-});
+}

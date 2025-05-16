@@ -2,6 +2,8 @@ body {
   font-family: "Century Gothic";
   margin: 0;
   padding: 0;
+  font-size:1.5rem;
+
   /* height:100vh; */
 }
 header {
@@ -16,6 +18,7 @@ header {
   left: 0;
   right: 0;
   z-index: 1000;
+  height:90px;
 }
  a {
   color: #fff;
@@ -37,7 +40,7 @@ header {
 #hero {
   position: relative;
   color:#fff;
-  background-image: url('https://images.pexels.com/photos/6214134/pexels-photo-6214134.jpeg?auto=compress&cs=tinysrgb&w=600'); 
+  background-image: url('https://images.pexels.com/photos/1488463/pexels-photo-1488463.jpeg?auto=compress&cs=tinysrgb&w=600'); 
   background-size: cover;
   background-position: center;
   text-align: center;
@@ -75,6 +78,18 @@ header {
   margin-bottom: 30px;
 }
 
+.hero-content h2 span {
+  color: #ffea00;
+}
+.hero-content .tagline {
+  display: block;
+  font-size: 1rem;
+  color: #fff8b5;
+  margin-top: 5px;
+  font-weight: 300;
+}
+
+
 button,.mybtn {
   display: inline-block;
   background-color: #011f09;
@@ -102,15 +117,8 @@ form {
 form input, form button {
   margin-bottom: 1rem;
   padding: 0.5rem;
-}
-
- .product-details {
-  display: flex;
-  gap: 1rem;
-  padding: 1rem;
-  background-color: rgb(1, 1, 27);
 } 
-.products img, .product-details img {
+.products img {
   width: 100%;
   height: 150px;
   object-fit: cover;
@@ -119,10 +127,6 @@ form input, form button {
 
 /* Individual product card */
 .product {
- /* border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
-  width: 200px;
   text-align: center;
   padding: 15px;
   background-color: #fff;
@@ -155,10 +159,37 @@ form input, form button {
   color: #666;
   margin: 5px 0;
 }
+#product-details img {
+  width: 280px;
+  max-width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+ /* .details-info {
+   flex: 1;
+  min-width: 200px; 
+ } */
+ 
+ #product-details h2 {
+  margin-top: 0;
+  color: #222;
+  font-size: 2rem;
+}
 
+#product-details p {
+  color: #444;
+  font-size: 1.1rem;
+  margin: 10px 0;
+}
 
+#product-details .price {
+  color: #007bff;
+  font-size: 1.3rem;
+  font-weight: bold;
+   margin: 15px 0; 
+} 
 
-#feat-products,.products,.cart, .product-details,h2{
+#feat-products,.products,.cart, .product-details{
   text-align: center;
 }
 #testimonials {
@@ -171,7 +202,7 @@ form input, form button {
  .footer-section, 
  .products,.feat-products{
    display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   justify-content:center;
   gap:1rem;
   padding: 1rem;
@@ -251,7 +282,10 @@ footer{
     color:#d9ff00;
   }
   .products, .product-details, #testimonial-container, .footer-section, .products,.feat-products{
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+     /* align-items: center;
+    justify-items: center;  */
+    overflow:hidden;
   }
   /* Remove bullet points and add proper styling for the menu links */
 #toggleText{
@@ -270,6 +304,8 @@ footer{
   font-size: 16px;
   
 }
+#toggleText a:hover {
+  text-decoration: underline; /* Underline on hover */
 
-
+}
 }
